@@ -32,7 +32,7 @@ def superfish_submenu(context, token):
             parent_page = part
     if template_name is None:
         try:
-            template_name = "pages/menus/superfishtree.html"
+            template_name = "mezzanine_superfish/superfishtree.html"
 #            template_name = context["menu_template_name"]
         except KeyError:
             error = "No template found for page_menu in: %s" % parts
