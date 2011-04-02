@@ -1,0 +1,25 @@
+{% load pages_tags i18n %}
+
+{% spaceless %}
+<ul class="sf-menu">
+    {% for page in page_branch %}
+    {% if forloop.first %}
+    <li>
+        <a href="{% url home %}">{% trans "Home" %}</a>
+    </li>
+    {% endif %}
+    {% if page.in_navigation %}
+    <li class="{% if page.is_current_or_ascendant %}active{% endif %}
+        {% if not top_level and forloop.first %} first{% endif %}
+        {% if forloop.last %} last{% endif %}"
+        id="superfishtree-menu-{{ page.html_id }}">
+        <a href="{% url page page.slug %}">{{ page.title }}</a>
+        {# remove this if tag to always show all nav items #}
+        {% if settings.PAGES_MENU_SHOW_ALL or page.is_current_or_ascendant %}
+        {% superfish_submenu page %}
+        {% endif %}
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endspaceless %}
