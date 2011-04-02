@@ -17,9 +17,18 @@ Or::
 
     pip install -e git+git@github.com/cartwheelweb/mezzanine_superfish.git#egg=mezzanine_superfish
 
+In the settings.py for your project::
+
+    INSTALLED_APPS = [
+        ...
+        'mezzanine_superfish',
+        ...
+    ]
+
 Fetch the static media::
 
     python manage.py collectstatic
+
 
 Usage
 =====
